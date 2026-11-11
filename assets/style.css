@@ -373,3 +373,16 @@ aside.side{display:flex;flex-direction:column;gap:16px;min-width:0}
 .faq-nav a{font-size:13px;white-space:nowrap}
 @media (max-width:400px){.faq-nav a span{display:none}}
 @media (max-width:1023px){.nav .mega{order:0;width:100%}.nav .mega .wrap{padding-left:0;padding-right:0}}
+
+/* About: background list on phones, even grid on larger screens */
+.bg-grid{gap:0}
+.bg-grid > div{background:none;border:0;border-top:1px solid var(--border);border-radius:0;padding:18px 0 18px 22px;position:relative}
+.bg-grid > div::before{content:"";position:absolute;left:0;top:26px;width:8px;height:8px;background:var(--orange)}
+.bg-grid > div:first-child{border-top:0}
+@media (min-width:768px){
+  .bg-grid{gap:16px}
+  .bg-grid > div,.bg-grid > div:first-child{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--orange);border-radius:var(--radius);padding:24px}
+  .bg-grid > div::before{display:none}
+  .bg-grid > div:last-child{grid-column:span 2}
+}
+@media (min-width:1024px){.bg-grid > div:last-child{grid-column:span 2}}
