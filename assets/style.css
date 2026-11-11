@@ -216,3 +216,21 @@ body{overflow-x:clip}
 @media (max-width:960px){.nav > a.nav-cta{display:flex;justify-content:center;border-bottom:0;border-radius:6px;padding:0 20px;color:var(--navy)!important}}
 @media (max-width:1180px) and (min-width:961px){.nav > a,.nav-btn{padding:0 10px}.bar{gap:16px 20px}}
 @media (max-width:1180px) and (min-width:961px){.nav{font-size:14px;gap:0}.nav > a,.nav-btn{padding:0 8px}.brand{font-size:19px}.actions{gap:8px}.actions .btn{padding:0 14px}.actions .btn svg{display:none}.theme-toggle span{width:30px;height:30px}}
+/* FAQ */
+.faq-wrap{display:flex;flex-wrap:wrap;gap:48px 64px;align-items:flex-start}
+.faq-head{flex:1 1 280px;min-width:0;position:sticky;top:120px}
+.faq-head p{margin:20px 0 0;color:var(--muted)}
+.faq-head p a{color:var(--accent);font-weight:600}
+.faq-list{flex:999 1 560px;min-width:0;border-top:1px solid var(--border)}
+.faq-list details{border-bottom:1px solid var(--border)}
+.faq-list summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:64px;padding:16px 0;font-family:var(--head);font-size:19px;font-weight:600}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary:hover{color:var(--accent)}
+.pm{flex:0 0 28px;height:28px;border-radius:999px;border:1px solid var(--border);position:relative}
+.pm::before,.pm::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;background:var(--orange);transform:translate(-50%,-50%);transition:transform .2s}
+.pm::after{transform:translate(-50%,-50%) rotate(90deg)}
+details[open] .pm::after{transform:translate(-50%,-50%) rotate(0)}
+.faq-list details p{margin:0 0 24px;max-width:680px;color:var(--muted);font-size:16px}
+@media (max-width:960px){.faq-head{position:static}}
+@media (max-width:560px){.faq-list summary{font-size:17px}}
+section[id]{scroll-margin-top:84px}
