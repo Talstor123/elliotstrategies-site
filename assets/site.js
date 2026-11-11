@@ -29,12 +29,22 @@
     setMenu(btn.getAttribute('aria-expanded') !== 'true');
   });
   document.addEventListener('click', function (e) {
-    if (mega && !mega.contains(e.target) && window.innerWidth > 960) setMenu(false);
+    if (mega && !mega.contains(e.target) && window.innerWidth >= 1024) setMenu(false);
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') { setMenu(false); if (typeof setNav === 'function') setNav(false); }
   });
 
+
+  // On phones/tablets the services list opens right under the Services button
+  var homeOfMega = mega ? mega.parentNode : null;
+  function placeMega() {
+    if (!mega || !btn) return;
+    if (window.innerWidth < 1024) { if (mega.parentNode !== btn.parentNode) btn.insertAdjacentElement('afterend', mega); }
+    else if (homeOfMega && mega.parentNode !== homeOfMega) homeOfMega.appendChild(mega);
+  }
+  placeMega();
+  window.addEventListener('resize', placeMega);
   // Mobile nav
   var mt = document.querySelector('.menu-toggle');
   var nav = document.querySelector('.nav');
@@ -56,7 +66,7 @@
     a.addEventListener('click', function () { setNav(false); setMenu(false); });
   });
   window.addEventListener('resize', function () {
-    if (window.innerWidth > 960 && nav && nav.classList.contains('open')) setNav(false);
+    if (window.innerWidth >= 1024 && nav && nav.classList.contains('open')) setNav(false);
   });
 
   // Inquiry form -> opens an email to the firm (no data is stored on the server)
