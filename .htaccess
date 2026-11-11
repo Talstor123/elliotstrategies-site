@@ -1,9 +1,19 @@
 # Elliot Strategies — clean URLs (no .html in the address bar)
 Options -MultiViews
+
+# Always re-check pages so updates show up right away
+<IfModule mod_headers.c>
+<FilesMatch "\.(html)$">
+Header set Cache-Control "no-cache"
+</FilesMatch>
+</IfModule>
 DirectoryIndex index.html index.php
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
+
+# About page was removed
+RewriteRule ^about/?$ / [R=301,L]
 
 # Force HTTPS
 RewriteCond %{HTTPS} !=on
