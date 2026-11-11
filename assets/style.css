@@ -320,3 +320,14 @@ img{max-width:100%}
 @media (max-width:560px){.brand{gap:0}.brand .mark{margin-right:8px}}
 .site-header{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--header)}
 .cap-k{display:block;width:28px;height:3px;background:var(--orange);margin-bottom:10px}
+/* new logo */
+.brand.logo{display:flex;align-items:center}
+.brand.logo img{display:block;height:44px;width:auto}
+.brand.logo .logo-night{display:none}
+[data-theme="night"] .brand.logo .logo-day{display:none}
+[data-theme="night"] .brand.logo .logo-night{display:block}
+.foot-grid .brand.logo img{height:48px}
+@media (max-width:560px){.brand.logo img{height:36px}}
+.brand.logo img{height:56px}
+@media (max-width:1180px) and (min-width:961px){.brand.logo img{height:48px}}
+@media (max-width:560px){.brand.logo img{height:46px}}
