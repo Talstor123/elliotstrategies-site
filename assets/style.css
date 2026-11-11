@@ -208,3 +208,11 @@ body{overflow-x:clip}
   .foot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 20px;padding-top:56px}
   .foot-grid > div:first-child{grid-column:1/-1}
 }
+/* hero without labels above the title */
+.svc-hero .wrap{padding-top:104px}
+@media (max-width:560px){.svc-hero .wrap{padding-top:64px;padding-bottom:72px}}
+.nav > a,.nav-btn,.btn{white-space:nowrap}
+.nav > a.nav-cta{display:none}
+@media (max-width:960px){.nav > a.nav-cta{display:flex;justify-content:center;border-bottom:0;border-radius:6px;padding:0 20px;color:var(--navy)!important}}
+@media (max-width:1180px) and (min-width:961px){.nav > a,.nav-btn{padding:0 10px}.bar{gap:16px 20px}}
+@media (max-width:1180px) and (min-width:961px){.nav{font-size:14px;gap:0}.nav > a,.nav-btn{padding:0 8px}.brand{font-size:19px}.actions{gap:8px}.actions .btn{padding:0 14px}.actions .btn svg{display:none}.theme-toggle span{width:30px;height:30px}}
