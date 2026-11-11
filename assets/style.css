@@ -163,3 +163,48 @@ aside.side{flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:16p
 }
 @media (max-width:560px){.wrap{padding:0 20px}.section{padding:80px 0}.hero-in{padding-top:72px;padding-bottom:80px}form.inquiry{padding:24px}.util .wrap > span{display:none}}
 @media (max-width:560px){.bar{gap:12px;min-height:68px}.brand{font-size:17px}.actions{gap:8px}.theme-toggle span{width:30px;height:30px}}
+
+/* ---- mobile fixes ---- */
+form.inquiry input,form.inquiry select,form.inquiry textarea{font-size:16px}
+.nav-cta{display:none}
+body{overflow-x:clip}
+@media (max-width:960px){
+  .site-header.menu-open{max-height:100vh;max-height:100dvh;overflow-y:auto;overscroll-behavior:contain}
+  body.menu-lock{overflow:hidden}
+  .nav > a,.nav-btn{min-height:48px;font-size:17px;border-bottom:1px solid var(--border);border-radius:0;padding:0 4px;justify-content:space-between}
+  .nav-btn{width:100%;text-align:left}
+  .nav-btn[aria-expanded="true"]{background:transparent;color:var(--accent)}
+  .nav-cta{display:flex;margin-top:16px;min-height:52px;font-size:16px}
+  .mega{display:none}
+  .site-header.menu-open .mega.open{display:block}
+  .mega-grid{gap:24px;padding-top:8px;padding-bottom:16px}
+  .mega h4{margin-bottom:8px}
+  .mega-col{gap:4px}
+  .mega-col a{padding:8px 0}
+  .mega-col a small{display:none}
+  .mega-2 a{display:flex;align-items:center;min-height:44px}
+  .mega-foot span{display:none}
+  .mega-foot{padding:12px 0 20px}
+  .feature{padding:20px}
+}
+@media (max-width:560px){
+  .hero h1{font-size:38px}
+  .hero p.lead,.svc-hero .lead{font-size:17px}
+  .ctas a{width:100%;justify-content:center}
+  .terms > div,.terms .h{padding-left:20px;padding-right:20px}
+  .terms strong{font-size:19px}
+  .clients ul{gap:8px 20px;font-size:16px}
+  .practice > div{padding:28px 20px}
+  .steps > div,.card{padding:24px}
+  .two-col h3{font-size:30px}
+  .contact-in{gap:40px;padding-top:80px;padding-bottom:80px}
+  .channels a,.channels strong{font-size:18px;word-break:break-all}
+  .svc-body{padding-top:64px;padding-bottom:64px;gap:40px}
+  .svc-main{gap:48px}
+  .svc-main h2{font-size:26px}
+  .covers > div{gap:16px}
+  .cta-band .wrap{padding-top:72px;padding-bottom:72px}
+  .cta-band .btn{width:100%}
+  .foot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 20px;padding-top:56px}
+  .foot-grid > div:first-child{grid-column:1/-1}
+}

@@ -32,16 +32,31 @@
     if (mega && !mega.contains(e.target) && window.innerWidth > 960) setMenu(false);
   });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') { setMenu(false); if (btn) btn.focus(); }
+    if (e.key === 'Escape') { setMenu(false); if (typeof setNav === 'function') setNav(false); }
   });
 
   // Mobile nav
   var mt = document.querySelector('.menu-toggle');
   var nav = document.querySelector('.nav');
-  if (mt && nav) mt.addEventListener('click', function () {
-    var open = !nav.classList.contains('open');
+  var header = document.querySelector('.site-header');
+  function setNav(open) {
+    if (!mt || !nav) return;
     nav.classList.toggle('open', open);
+    if (header) header.classList.toggle('menu-open', open);
+    document.body.classList.toggle('menu-lock', open);
     mt.setAttribute('aria-expanded', open ? 'true' : 'false');
+    mt.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (!open) setMenu(false);
+  }
+  if (mt && nav) mt.addEventListener('click', function () {
+    setNav(!nav.classList.contains('open'));
+  });
+  // Close the menu after tapping any link inside it
+  document.querySelectorAll('.nav a, #mega a').forEach(function (a) {
+    a.addEventListener('click', function () { setNav(false); setMenu(false); });
+  });
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 960 && nav && nav.classList.contains('open')) setNav(false);
   });
 
   // Inquiry form -> opens an email to the firm (no data is stored on the server)
